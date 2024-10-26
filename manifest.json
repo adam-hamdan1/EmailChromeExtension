@@ -12,7 +12,7 @@
         "service_worker": "src/service_worker.js"
     },
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "ui/popup.html"
     },
     "oauth2": {
         "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
