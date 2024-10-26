@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Email Sorter Dashboard</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Email Sorter</h1>
+            <div class="header-actions">
+                <button id="refresh-rules" class="btn">
+                    <img src="../assets/icons/refresh.png" alt="Refresh">
+                    Refresh Rules
+                </button>
+                <button id="process-emails" class="btn primary">
+                    <img src="../assets/icons/process.png" alt="Process">
+                    Process Emails
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="status-section">
+                <h2>Status</h2>
+                <div id="processing-status" class="status-card">
+                    <div class="status-icon"></div>
+                    <span class="status-text">Ready to process</span>
+                </div>
+            </div>
+
+            <div class="rules-section">
+                <h2>Active Rules</h2>
+                <div id="rules-list" class="rules-container">
+                    <!-- Rules will be dynamically inserted here -->
+                </div>
+                <button id="add-rule" class="btn secondary" onclick="window.location.href='ruleManagement.html'">
+                    Add New Rule
+                </button>
+            </div>
+
+            <div class="stats-section">
+                <h2>Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Processed Today</span>
+                        <span id="processed-today" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Active Rules</span>
+                        <span id="active-rules" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Labels Created</span>
+                        <span id="labels-created" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="notification-container" class="notification-container">
+            <!-- Notifications will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../src/gmailAPIHandler.js"></script>
+    <script src="../src/ruleProcessor.js"></script>
+    <script src="../src/notificationManager.js"></script>
+    <script src="../src/ruleManagement.js"></script>
+    <script src="../src/uiManager.js"></script>
+    <script src="../src/coordinator.js"></script>
+</body>
+</html>

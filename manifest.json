@@ -12,10 +12,10 @@
         "service_worker": "src/service_worker.js"
     },
     "action": {
-        "default_popup": "ui/popup.html"
+        "default_popup": "ui/dashboard.html"
     },
     "oauth2": {
-        "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+        "client_id": "167508297203-8rr0u04vbv4q29vpkr7ajksn6d9o39rg.apps.googleusercontent.com",
         "scopes": [
             "https://www.googleapis.com/auth/gmail.readonly",
             "https://www.googleapis.com/auth/gmail.modify",

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Rules - Email Sorter</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="rule-management-container">
+        <header class="page-header">
+            <button class="btn back-btn" onclick="window.location.href='dashboard.html'">
+                <img src="../assets/icons/back.png" alt="Back">
+                Back to Dashboard
+            </button>
+            <h1>Manage Rules</h1>
+        </header>
+
+        <div class="rule-form-section">
+            <h2>Create New Rule</h2>
+            <form id="rule-form" class="rule-form">
+                <div class="form-group">
+                    <label for="sender">Sender Email/Domain</label>
+                    <input type="text" id="sender" name="sender" required>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="senderMatch" name="senderMatch" checked>
+                        <label for="senderMatch">Partial match</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject Contains</label>
+                    <input type="text" id="subject" name="subject">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="subjectMatch" name="subjectMatch">
+                        <label for="subjectMatch">Partial match</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="labelName">Label Name</label>
+                    <input type="text" id="labelName" name="labelName" required>
+                </div>
+
+                <input type="hidden" id="labelId" name="labelId">
+                
+                <div class="form-actions">
+                    <button type="reset" class="btn">Clear</button>
+                    <button type="submit" class="btn primary">Create Rule</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="existing-rules-section">
+            <h2>Existing Rules</h2>
+            <div id="rules-list" class="rules-list">
+                <!-- Existing rules will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div id="notification-container" class="notification-container">
+            <!-- Notifications will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../src/gmailAPIHandler.js"></script>
+    <script src="../src/notificationManager.js"></script>
+    <script src="../src/ruleManagement.js"></script>
+    <script src="../src/uiManager.js"></script>
+</body>
+</html>

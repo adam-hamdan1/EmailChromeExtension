@@ -1,0 +1,227 @@
+/* Global Styles */
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #5f6368;
+    --success-color: #0f9d58;
+    --error-color: #d93025;
+    --warning-color: #f4b400;
+    --background-color: #ffffff;
+    --surface-color: #f8f9fa;
+    --border-color: #dadce0;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --shadow-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+                0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    --shadow-2: 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+    min-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--surface-color);
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn.primary:hover {
+    background-color: #1557b0;
+}
+
+.btn.secondary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    padding: 16px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.status-section,
+.rules-section,
+.stats-section {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.stat-card {
+    background-color: var(--background-color);
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Rule Management Styles */
+.rule-form {
+    background-color: var(--surface-color);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.checkbox-group {
+    margin-top: 8px;
+}
+
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Notification Styles */
+.notification-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 320px;
+}
+
+.notification {
+    padding: 12px 16px;
+    border-radius: 4px;
+    background-color: var(--surface-color);
+    box-shadow: var(--shadow-2);
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.notification.error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.notification.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .dashboard-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
