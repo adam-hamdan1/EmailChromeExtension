@@ -1,24 +1,28 @@
 {
     "manifest_version": 3,
-    "name": "Chrome Email Sorter",
+    "name": "Chrome Extension Email Sorter",
     "version": "1.0",
     "permissions": [
-      "storage",
-      "identity",
-      "identity.email",
-      "notifications"
+        "storage",
+        "identity",
+        "identity.email",
+        "notifications"
     ],
     "background": {
-      "service_worker": "background.js"
+        "service_worker": "src/service_worker.js"
     },
     "action": {
-      "default_popup": "popup.html"
+        "default_popup": "popup.html"
     },
     "oauth2": {
-      "client_id": "YOUR_CLIENT_ID",
-      "scopes": [
-        "https://mail.google.com/"
-      ]
-    }
-  }
-  
+        "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/gmail.readonly",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "https://www.googleapis.com/auth/gmail.labels"
+        ]
+    },
+    "host_permissions": [
+        "https://www.googleapis.com/*"
+    ]
+}
