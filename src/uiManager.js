@@ -90,6 +90,28 @@ const UIManager = (() => {
             });
         }
     }
+    // Ensure DOM is fully loaded before adding event listeners
+document.addEventListener("DOMContentLoaded", () => {
+        const addRuleButton = document.getElementById("add-rule");
+        
+        // Add click event listener to the "Add Rule" button
+        if (addRuleButton) {
+            addRuleButton.addEventListener("click", () => {
+                window.location.href = "ruleManagement.html";
+            });
+        }
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const addRuleButton = document.getElementById("add-rule");
+        if (addRuleButton) {
+            addRuleButton.addEventListener("click", () => {
+                window.location.href = "ruleManagement.html";
+            });
+        }
+    });
+    
 
     // Public interface
     return {
