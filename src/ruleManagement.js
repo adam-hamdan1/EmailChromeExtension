@@ -54,6 +54,15 @@ const RuleManager = (() => {
         return rules;
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const backButton = document.querySelector(".back-btn");
+        if (backButton) {
+            backButton.addEventListener("click", () => {
+                window.location.href = 'dashboard.html';
+            });
+        }
+});
+
     // Initialize
     loadRules();
 
