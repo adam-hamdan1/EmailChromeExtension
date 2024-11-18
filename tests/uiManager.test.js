@@ -11,7 +11,7 @@ jest.mock('../src/ruleManagement', () => ({
         loadRules: jest.fn(),
     },
 }));
-jest.mock('./src/notificationManager', () => ({
+jest.mock('../src/notificationManager', () => ({
     NotificationManager: {
         showError: jest.fn(),
         showSuccess: jest.fn(),
