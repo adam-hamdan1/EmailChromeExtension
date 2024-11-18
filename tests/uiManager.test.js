@@ -17,11 +17,6 @@ jest.mock('../src/notificationManager', () => ({
         showSuccess: jest.fn(),
     },
 }));
-jest.mock('../src/coordinator', () => ({
-    Coordinator: {
-        loadAndProcessEmails: jest.fn(),
-    },
-}));
 
 const { RuleManager } = require('../src/ruleManagement.js');
 const { NotificationManager } = require('../src/notificationManager.js');
