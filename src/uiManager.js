@@ -74,8 +74,13 @@ const UIManager = (() => {
     function setupProcessButton() {
         const processButton = document.getElementById('process-emails');
         if (processButton) {
-            processButton.addEventListener('click', () => {
-                Coordinator.loadAndProcessEmails();
+            processButton.addEventListener('click', async () => {
+                try {
+                    const emails = await GmailAPIHandler.loadEmails(); // Retrieve emails to process
+                    await RuleProcessor.processEmails(emails); // Process emails with RuleProcessor
+                } catch (error) {
+                    NotificationManager.showError('Failed to process emails');
+                }
             });
         }
     }
@@ -91,16 +96,16 @@ const UIManager = (() => {
         }
     }
     // Ensure DOM is fully loaded before adding event listeners
-document.addEventListener("DOMContentLoaded", () => {
-        const addRuleButton = document.getElementById("add-rule");
-        
-        // Add click event listener to the "Add Rule" button
-        if (addRuleButton) {
-            addRuleButton.addEventListener("click", () => {
-                window.location.href = "ruleManagement.html";
-            });
-        }
-    });
+    document.addEventListener("DOMContentLoaded", () => {
+            const addRuleButton = document.getElementById("add-rule");
+            
+            // Add click event listener to the "Add Rule" button
+            if (addRuleButton) {
+                addRuleButton.addEventListener("click", () => {
+                    window.location.href = "ruleManagement.html";
+                });
+            }
+        });
 
 
     document.addEventListener("DOMContentLoaded", () => {
