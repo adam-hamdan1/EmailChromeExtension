@@ -1,4 +1,4 @@
-import NotificationManager from '../path/to/NotificationManager'; // Adjust the path
+import NotificationManager from '../src/NotificationManager'; // Adjust the path
 
 // Mock Chrome APIs
 global.chrome = {

@@ -23,10 +23,9 @@ jest.mock('../src/coordinator', () => ({
     },
 }));
 
-const { RuleManager } = require('../src/ruleManagement');
-const { NotificationManager } = require('../src/notificationManager');
-const { Coordinator } = require('../src/coordinator');
-const UIManager = require('../src/uiManager');
+const { RuleManager } = require('../src/ruleManagement.js');
+const { NotificationManager } = require('../src/notificationManager.js');
+const UIManager = require('../src/uiManager.js');
 
 describe('UI Manager Tests', () => {
     let container;
