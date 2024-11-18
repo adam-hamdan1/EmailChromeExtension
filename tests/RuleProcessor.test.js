@@ -1,5 +1,5 @@
 // RuleProcessor.test.js
-const RuleProcessor = require('./ruleProcessor'); // Adjust the path to your actual file
+const RuleProcessor = require('../src/ruleProcessor'); // Adjust the path to your actual file
 
 // Mock data for emails and rules
 const mockEmails = [

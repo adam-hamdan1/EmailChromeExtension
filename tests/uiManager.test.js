@@ -3,7 +3,7 @@
  */
 
 // Mock dependencies
-jest.mock('./ruleManagement', () => ({
+jest.mock('../src/ruleManagement', () => ({
     RuleManager: {
         addRule: jest.fn(),
         deleteRule: jest.fn(),
@@ -11,22 +11,22 @@ jest.mock('./ruleManagement', () => ({
         loadRules: jest.fn(),
     },
 }));
-jest.mock('./notificationManager', () => ({
+jest.mock('./src/notificationManager', () => ({
     NotificationManager: {
         showError: jest.fn(),
         showSuccess: jest.fn(),
     },
 }));
-jest.mock('./coordinator', () => ({
+jest.mock('../src/coordinator', () => ({
     Coordinator: {
         loadAndProcessEmails: jest.fn(),
     },
 }));
 
-const { RuleManager } = require('./ruleManagement');
-const { NotificationManager } = require('./notificationManager');
-const { Coordinator } = require('./coordinator');
-const UIManager = require('./uiManager');
+const { RuleManager } = require('../src/ruleManagement');
+const { NotificationManager } = require('../src/notificationManager');
+const { Coordinator } = require('../src/coordinator');
+const UIManager = require('../src/uiManager');
 
 describe('UI Manager Tests', () => {
     let container;
