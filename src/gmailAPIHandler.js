@@ -93,5 +93,3 @@ const GmailAPIHandler = (() => {
     };
 })();
 
-
-export default GmailAPIHandler; // Add this line for ES Modules

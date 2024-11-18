@@ -75,4 +75,4 @@ const RuleProcessor = (() => {
     };
 })();
 
-export default RuleProcessor; // Add this line for ES Modules
+// export default RuleProcessor; // Add this line for ES Modules

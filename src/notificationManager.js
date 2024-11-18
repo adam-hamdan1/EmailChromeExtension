@@ -56,4 +56,3 @@ const NotificationManager = (() => {
     };
 })();
 
-export default NotificationManager; // Add this line for ES Modules

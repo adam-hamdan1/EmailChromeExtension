@@ -162,4 +162,4 @@ chrome.runtime.onInstalled.addListener(() => {
   loadRules(() => console.log("Rules loaded."));
 });
 
-export default ServiceWorker; // Add this line for ES Modules
+// export default ServiceWorker; // Add this line for ES Modules

@@ -76,4 +76,4 @@ const RuleManager = (() => {
     };
 })();
 
-export default RuleManager; // Add this line for ES Modules
+// export default RuleManager; // Add this line for ES Modules

@@ -128,4 +128,4 @@ const UIManager = (() => {
 // Initialize UI when popup loads
 document.addEventListener('DOMContentLoaded', UIManager.initialize);
 
-export default UIManager; // Add this line for ES Modules
+// export default UIManager; // Add this line for ES Modules
