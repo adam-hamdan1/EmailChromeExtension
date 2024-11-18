@@ -55,3 +55,5 @@ const NotificationManager = (() => {
         showPopupNotification
     };
 })();
+
+export default NotificationManager; // Add this line for ES Modules

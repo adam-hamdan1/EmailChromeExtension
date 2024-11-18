@@ -161,3 +161,5 @@ chrome.runtime.onInstalled.addListener(() => {
   authenticate(); // Authenticate user on installation
   loadRules(() => console.log("Rules loaded."));
 });
+
+export default ServiceWorker; // Add this line for ES Modules

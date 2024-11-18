@@ -74,3 +74,5 @@ const RuleProcessor = (() => {
         processEmail
     };
 })();
+
+export default RuleProcessor; // Add this line for ES Modules

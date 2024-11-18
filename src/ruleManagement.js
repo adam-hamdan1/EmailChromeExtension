@@ -75,3 +75,5 @@ const RuleManager = (() => {
         getRules
     };
 })();
+
+export default RuleManager; // Add this line for ES Modules

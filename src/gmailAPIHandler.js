@@ -92,3 +92,6 @@ const GmailAPIHandler = (() => {
         applyLabel
     };
 })();
+
+
+export default GmailAPIHandler; // Add this line for ES Modules
