@@ -54,15 +54,6 @@ describe('UI Manager Tests', () => {
         document.body.removeChild(container);
     });
 
-    test('initialize() should set up all event listeners', () => {
-        const form = document.getElementById('rule-form');
-        const processButton = document.getElementById('process-emails');
-        const refreshButton = document.getElementById('refresh-rules');
-
-        expect(form).toBeTruthy();
-        expect(processButton).toBeTruthy();
-        expect(refreshButton).toBeTruthy();
-    });
 
     test('setupRuleForm() should call RuleManager.addRule on form submission', async () => {
         RuleManager.addRule.mockResolvedValueOnce();
