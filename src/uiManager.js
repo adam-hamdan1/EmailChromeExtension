@@ -11,24 +11,22 @@ const UIManager = (() => {
     // Setup the rule creation form
     function setupRuleForm() {
         const form = document.getElementById('rule-form');
-        if (!form) return;
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
+            const data = new FormData(form);
             const rule = {
-                sender: form.sender.value,
-                subject: form.subject.value,
-                labelId: form.labelId.value,
-                labelName: form.labelName.value,
-                senderMatch: form.senderMatch.checked,
-                subjectMatch: form.subjectMatch.checked
+                sender: data.get('sender'),
+                subject: data.get('subject'),
+                labelId: data.get('labelId'),
+                labelName: data.get('labelName'),
+                senderMatch: data.get('senderMatch') === 'on',
+                subjectMatch: data.get('subjectMatch') === 'on',
             };
 
             try {
                 await RuleManager.addRule(rule);
-                form.reset();
-                updateRulesList();
+                NotificationManager.showSuccess('Rule added successfully');
             } catch (error) {
                 NotificationManager.showError('Failed to add rule');
             }
@@ -54,20 +52,28 @@ const UIManager = (() => {
 
     // Update the displayed rules list
     async function updateRulesList() {
-        const rulesList = document.getElementById('rules-list');
-        if (!rulesList) return;
-
         const rules = await RuleManager.getRules();
-        rulesList.innerHTML = rules.map(rule => `
-            <div class="rule-item">
-                <div class="rule-info">
-                    <strong>Sender:</strong> ${rule.sender}<br>
-                    <strong>Subject:</strong> ${rule.subject}<br>
-                    <strong>Label:</strong> ${rule.labelName}
-                </div>
-                <button class="delete-rule" data-rule-id="${rule.id}">Delete</button>
-            </div>
-        `).join('');
+        const rulesList = document.getElementById('rules-list');
+        rulesList.innerHTML = '';
+
+        rules.forEach((rule) => {
+            const ruleItem = document.createElement('div');
+            ruleItem.textContent = `${rule.sender} - ${rule.subject}`;
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = 'delete-rule';
+            deleteButton.addEventListener('click', async () => {
+                try {
+                    await RuleManager.deleteRule(rule.id);
+                    NotificationManager.showSuccess('Rule deleted successfully');
+                    await this.updateRulesList();
+                } catch (error) {
+                    NotificationManager.showError('Failed to delete rule');
+                }
+            });
+            ruleItem.appendChild(deleteButton);
+            rulesList.appendChild(ruleItem);
+        });
     }
 
     // Setup the process emails button
@@ -88,13 +94,16 @@ const UIManager = (() => {
     // Setup the refresh rules button
     function setupRefreshButton() {
         const refreshButton = document.getElementById('refresh-rules');
-        if (refreshButton) {
-            refreshButton.addEventListener('click', async () => {
+        refreshButton.addEventListener('click', async () => {
+            try {
                 await RuleManager.loadRules();
-                updateRulesList();
-            });
-        }
+                await this.updateRulesList();
+            } catch (error) {
+                NotificationManager.showError('Failed to refresh rules');
+            }
+        });
     }
+
     // Ensure DOM is fully loaded before adding event listeners
     document.addEventListener("DOMContentLoaded", () => {
             const addRuleButton = document.getElementById("add-rule");

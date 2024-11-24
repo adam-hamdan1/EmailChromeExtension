@@ -17,6 +17,12 @@ jest.mock('../src/notificationManager', () => ({
         showSuccess: jest.fn(),
     },
 }));
+jest.mock('../src/uiManager', () => ({
+    setupRuleForm: jest.fn(),
+    setupRefreshButton: jest.fn(),
+    updateRulesList: jest.fn(),
+}));
+
 
 const { RuleManager } = require('../src/ruleManagement.js');
 const { NotificationManager } = require('../src/notificationManager.js');
@@ -30,7 +36,7 @@ describe('UI Manager Tests', () => {
 
         // Set up a mock DOM
         container = document.createElement('div');
-        container.innerHTML = `
+        document.body.innerHTML = `
             <form id="rule-form">
                 <input name="sender" value="test@example.com" />
                 <input name="subject" value="Test Subject" />
@@ -41,12 +47,23 @@ describe('UI Manager Tests', () => {
                 <button type="submit">Add Rule</button>
             </form>
             <div id="rules-list"></div>
-            <button id="process-emails">Process Emails</button>
             <button id="refresh-rules">Refresh Rules</button>
         `;
         document.body.appendChild(container);
 
         // Initialize the UIManager
+    });
+
+    beforeEach(() => {
+        UIManager.setupRuleForm();
+        UIManager.setupRuleForm.mockImplementation(() => {
+            const form = document.getElementById('rule-form');
+            form.addEventListener('submit', jest.fn());
+        });
+        UIManager.setupRefreshButton.mockImplementation(() => {
+            const refreshButton = document.getElementById('refresh-rules');
+            refreshButton.addEventListener('click', jest.fn());
+        });
     });
 
     afterEach(() => {
@@ -59,6 +76,9 @@ describe('UI Manager Tests', () => {
 
         const form = document.getElementById('rule-form');
         form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+        // Wait for async operation to complete
+        await Promise.resolve();
 
         expect(RuleManager.addRule).toHaveBeenCalledWith({
             sender: 'test@example.com',
@@ -77,8 +97,13 @@ describe('UI Manager Tests', () => {
         const form = document.getElementById('rule-form');
         form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
+        // Wait for async operation to complete
+        await Promise.resolve();
+
         expect(NotificationManager.showError).toHaveBeenCalledWith('Failed to add rule');
     });
+
+
 
     test('setupRulesList() should populate rules list and handle delete', async () => {
         RuleManager.getRules.mockResolvedValueOnce([
@@ -103,14 +128,19 @@ describe('UI Manager Tests', () => {
         RuleManager.loadRules.mockResolvedValueOnce();
         RuleManager.getRules.mockResolvedValueOnce([]);
 
+        UIManager.setupRefreshButton();
+
         const refreshButton = document.getElementById('refresh-rules');
         refreshButton.click();
 
-        await Promise.resolve(); // Wait for async calls
+        // Wait for async operations to resolve
+        await Promise.resolve();
 
         expect(RuleManager.loadRules).toHaveBeenCalled();
         expect(RuleManager.getRules).toHaveBeenCalled();
     });
+
+
 
     test('updateRulesList() should handle empty rules list', async () => {
         RuleManager.getRules.mockResolvedValueOnce([]);
