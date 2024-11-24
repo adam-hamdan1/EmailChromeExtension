@@ -1,4 +1,4 @@
-import GmailAPIHandler from '../src/gmailAPIHandler'; // Adjust the path as needed
+import GmailAPIHandler from '../src/gmailAPIHandler.js'; // Adjust the path as needed
 
 // Mock Chrome APIs
 global.chrome = {

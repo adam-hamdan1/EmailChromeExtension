@@ -1,4 +1,4 @@
-import NotificationManager from '../src/NotificationManager'; // Adjust the path
+const NotificationManager = require('../src/notificationManager.js'); // Adjust the path to your actual file
 
 // Mock Chrome APIs
 global.chrome = {

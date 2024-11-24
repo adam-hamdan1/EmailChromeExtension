@@ -13,7 +13,7 @@ const NotificationManager = {
 };
 
 // Import RuleManager
-const RuleManager = require('../src/ruleManagement').RuleManager;
+const RuleManager = require('../src/ruleManagement.js').RuleManager;
 
 describe('Rule Management Tests', () => {
     let rules;

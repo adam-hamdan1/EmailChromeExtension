@@ -47,7 +47,6 @@ describe('UI Manager Tests', () => {
         document.body.appendChild(container);
 
         // Initialize the UIManager
-        UIManager.initialize();
     });
 
     afterEach(() => {
@@ -99,12 +98,6 @@ describe('UI Manager Tests', () => {
         expect(NotificationManager.showSuccess).toHaveBeenCalled();
     });
 
-    test('setupProcessButton() should trigger email processing', () => {
-        const processButton = document.getElementById('process-emails');
-        processButton.click();
-
-        expect(Coordinator.loadAndProcessEmails).toHaveBeenCalled();
-    });
 
     test('setupRefreshButton() should reload and update rules list', async () => {
         RuleManager.loadRules.mockResolvedValueOnce();

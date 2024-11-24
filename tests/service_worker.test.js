@@ -40,7 +40,7 @@ const {
     loadRules,
     saveRule,
     notifyUser,
-} = require('../src/service_worker');
+} = require('../src/service_worker.js');
 
 describe('Service Worker Tests', () => {
     beforeEach(() => {
