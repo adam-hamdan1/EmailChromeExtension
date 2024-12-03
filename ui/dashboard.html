@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Email Sorter Dashboard</title>
     <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../src/please.js" defer></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -38,7 +39,35 @@
                 <button id="add-rule" class="btn secondary">
                     Add Rule
                 </button>
+            </div>
 
+            <!-- Rule Form (added based on the JavaScript code's expectations) -->
+            <div class="rule-form-container">
+                <form id="rule-form" class="rule-form">
+                    <label for="sender">Sender:</label>
+                    <input type="text" id="sender" name="sender">
+
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject">
+
+                    <label for="labelId">Label ID:</label>
+                    <input type="text" id="labelId" name="labelId">
+
+                    <label for="labelName">Label Name:</label>
+                    <input type="text" id="labelName" name="labelName">
+
+                    <label for="senderMatch">
+                        <input type="checkbox" id="senderMatch" name="senderMatch">
+                        Match Sender
+                    </label>
+
+                    <label for="subjectMatch">
+                        <input type="checkbox" id="subjectMatch" name="subjectMatch">
+                        Match Subject
+                    </label>
+
+                    <button type="submit" class="btn primary">Add Rule</button>
+                </form>
             </div>
 
             <div class="stats-section">

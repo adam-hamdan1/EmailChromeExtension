@@ -4,19 +4,21 @@ const GmailAPIHandler = (() => {
 
     // Authenticate and retrieve OAuth token
     async function authenticate() {
-        return new Promise((resolve, reject) => {
-            chrome.identity.getAuthToken({ interactive: true }, (token) => {
-                if (chrome.runtime.lastError) {
-                    console.error("Error during authentication:", chrome.runtime.lastError);
-                    reject(chrome.runtime.lastError);
-                } else {
-                    oauthToken = token;
-                    chrome.storage.local.set({ accessToken: token });
-                    resolve(token);
-                }
-            });
+        console.log("Attempting to get auth token...");
+        chrome.identity.getAuthToken({ interactive: true }, (token) => {
+            if (chrome.runtime.lastError) {
+                console.error("Authentication error:", chrome.runtime.lastError.message);
+                return; // Early exit on error
+            }
+            if (token) {
+                console.log("Authentication successful, token:", token);
+                // Continue with authenticated requests
+            } else {
+                console.error("No token received.");
+            }
         });
     }
+
 
     // Refresh OAuth token if expired
     async function refreshToken() {
