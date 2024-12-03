@@ -1,34 +1,16 @@
 {
-    "manifest_version": 3,
-    "name": "Chrome Extension Email Sorter",
-    "version": "1.0",
-    "permissions": [
-        "storage",
-        "identity",
-        "identity.email",
-        "notifications"
-    ],
-    "background": {
-        "service_worker": "src/service_worker.js"
-    },
-    "action": {
-        "default_popup": "ui/dashboard.html"
-    },
-    "oauth2": {
-        "client_id": "",
-        "scopes": [
-            "openid",
-            "email",
-            "profile",
-            "https://www.googleapis.com/auth/gmail.readonly",
-            "https://www.googleapis.com/auth/gmail.modify",
-            "https://www.googleapis.com/auth/gmail.labels",
-             "https://www.googleapis.com/auth/userinfo.email"
-
-
-        ]
-    },
-    "host_permissions": [
-        "https://www.googleapis.com/*"
-    ]
+  "manifest_version": 3,
+  "name": "Email Sorting Chrome Extension",
+  "version": "1.0",
+  "description": "Manage and execute email rules.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://localhost:3000/*"
+  ],
+  "action": {
+    "default_popup": "ui/run_rules.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
 }
