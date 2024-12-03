@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Email Sorting Chrome Extension</title>
+  <style>
+    /* Set a fixed size for the body or wrapper div */
+    body {
+      width: 250px; /* Fixed width */
+      height: auto; /* Fixed height */
+      overflow: auto; /* Allows scrollbars if content overflows */
+    }
+  </style>
+</head>
+<body>
+  <h1>Email Sorter</h1>
+  <div id="rulesContainer"></div>
+  <br>
+  <button id="runSelectedRules">Run Selected Rules</button>
+  <br><br>
+  <button id="deleteSelectedRules">Delete Selected Rules</button>
+  <br><br>
+  <button id="createRules">Create New Rules</button>
+  <script src="../src/run_rules.js"></script>
+</body>
+</html>

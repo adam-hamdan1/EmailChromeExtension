@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Set a fixed size for the body or wrapper div */
+    body {
+      width: 250px; /* Fixed width */
+      height: auto; /* Fixed height */
+      overflow: auto; /* Allows scrollbars if content overflows */
+    }
+  </style>
+  <title>Create Rules</title>
+</head>
+<body>
+  <h1>Create a Rule</h1>
+  <label for="sender">Sender Email:</label>
+  <input type="text" id="sender" placeholder="Enter sender email" />
+  <br><br>
+  <label for="label">Label Name:</label>
+  <input type="text" id="label" placeholder="Enter label name" />
+  <br><br>
+  <button id="saveRule">Save Rule</button>
+  <br><br>
+  <button id="backToRunRules">Back to Run Rules</button>
+
+  <script src="../src/create_rules.js"></script>
+</body>
+</html>
