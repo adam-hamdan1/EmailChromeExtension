@@ -22,7 +22,7 @@ describe('create_rules.js functionality', () => {
     <button id="backToRunRules"></button>
   `;
   global.alert = jest.fn(); // Mock alert
-  require('../src/create_rules'); // Load the script
+  require('../src/create_rules.js'); // Load the script
 });
 
 
