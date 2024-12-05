@@ -23,5 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Fix permissions for Jest binary
+        run: chmod +x ./node_modules/.bin/jest
+
       - name: Run unit tests
         run: npm test
