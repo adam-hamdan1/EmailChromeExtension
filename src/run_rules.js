@@ -60,10 +60,10 @@ document.getElementById('runSelectedRules').addEventListener('click', async () =
 
         const result = await response.json();
         console.log("Backend response:", result.output);
-        alert("Script executed successfully. Check the console for output.");
+        alert("Emails Sorted!");
       } catch (error) {
         console.error("Error running script:", error);
-        alert("Error executing the script. Check the console for details.");
+        alert("Unable to sort Emails.");
       }
     } else {
       alert('No rules selected.');
