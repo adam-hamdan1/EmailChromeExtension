@@ -20,7 +20,7 @@ This Extension is still in development and can only run locally with a server ru
   - If creating a rule add the sending email and name for the label where you want the emails to be sorted to
 - Click run selected rules and wait while your email gets sorted.
 
-## Roadmap
+## Future Roadmap
 
 - **Sorting Criteria:** Soon to come sorting subject, key words, date, ect.
 - **Automation:** When an email that meets that criteria of a created rule it automatlically gets sorted.
