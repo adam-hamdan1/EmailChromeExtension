@@ -1,7 +1,3 @@
-/**
- * @file run_rules.test.js
- * Updated tests with all necessary fixes
- */
 
 const mockRules = [
   { sender: "test1@example.com", label: "Important" },
