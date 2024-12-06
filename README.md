@@ -3,6 +3,8 @@ Project for CSDS 393.
 
 **Gmail Chrome Sorting Extension** is a lightweight and intuitive browser extension designed to enhance your Gmail experience. It allows you to sort emails based on various customizable criteria, making it easier to manage and prioritize your inbox.
 
+This Extension is still in development and can only run locally with a server running to host the sorting logic.
+
 ## Features
 
 - **Customizable Sorting:** Sort emails by sender.
