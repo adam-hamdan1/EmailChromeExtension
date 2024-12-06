@@ -9,7 +9,6 @@ This Extension is still in development and can only run locally with a server ru
 
 - **Customizable Sorting:** Sort emails by sender.
 - **Intuitive Interface:** Seamless integration with Gmail's UI for a native look and feel.
-- **Multi-Criteria Sorting:** Combine multiple sorting options to tailor your email view.
 - **Secure and Private:** No data is stored externally; all operations are handled locally.
 
 ## Usage
@@ -22,5 +21,6 @@ This Extension is still in development and can only run locally with a server ru
 
 ## Future Roadmap
 
-- **Sorting Criteria:** Soon to come sorting subject, key words, date, ect.
+- **Sorting Criteria:** Soon to come sorting by subject, key words, date, and other criteria.
+- **Multi-Criteria Sorting:** Combine multiple sorting options to tailor your email view.
 - **Automation:** When an email that meets that criteria of a created rule it automatlically gets sorted.
