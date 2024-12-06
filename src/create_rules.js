@@ -1,8 +1,8 @@
 // Add event listener for the "Save Rule" button
 document.getElementById('saveRule').addEventListener('click', () => {
   // Get the input values for sender and label
-  const senderInput = document.getElementById('sender').value.trim(); // Trim whitespace
-  const labelInput = document.getElementById('label').value.trim(); // Trim whitespace
+  const senderInput = document.getElementById('sender').value.trim();
+  const labelInput = document.getElementById('label').value.trim();
 
   // Validate that both fields are filled
   if (senderInput && labelInput) {
