@@ -10,6 +10,14 @@ Project for CSDS 393.
 - **Multi-Criteria Sorting:** Combine multiple sorting options to tailor your email view.
 - **Secure and Private:** No data is stored externally; all operations are handled locally.
 
+## Usage
+
+- Open Gmail in your Chrome browser
+- Click on the extension to open your rules.
+- Create a rule or select your already made rule.
+  - If creating a rule add the sending email and name for the label where you want the emails to be sorted to
+- Click run selected rules and wait while your email gets sorted.
+
 ## Roadmap
 
 - **Sorting Criteria:** Soon to come sorting subject, key words, date, ect.
