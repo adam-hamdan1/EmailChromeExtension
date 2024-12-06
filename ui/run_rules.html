@@ -21,6 +21,31 @@
   <button id="deleteSelectedRules">Delete Selected Rules</button>
   <br><br>
   <button id="createRules">Create New Rules</button>
-  <script src="../src/run_rules.js"></script>
+  
+  
+  <script type="module" src="../src/popup.js">
+    // Check if there's a popup message in sessionStorage
+    const message = sessionStorage.getItem("popupMessage");
+    
+    if (message) {
+        // Display the popup
+        createPopup(message);
+
+        // Clear the message to prevent it from reappearing
+        sessionStorage.removeItem("popupMessage");
+    }
+  </script>
+  <script type="module" src="../src/run_rules.js">
+    // Check for the popup message in sessionStorage
+    const message2 = sessionStorage.getItem("popupMessage");
+    
+    if (message2) {
+      // Show the popup
+      createPopup(message2); 
+
+      // Clear the message
+      sessionStorage.removeItem("popupMessage"); 
+    }
+  </script>
 </body>
 </html>

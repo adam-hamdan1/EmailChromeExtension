@@ -1,3 +1,5 @@
+import { createPopup } from '../src/popup.js';
+
 // Wait for the DOM to fully load before executing
 document.addEventListener('DOMContentLoaded', () => {
   const rulesContainer = document.getElementById('rulesContainer');
@@ -37,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Event listener to run selected rules
 document.getElementById('runSelectedRules').addEventListener('click', async () => {
-  alert('Attempting to sort emails...');
   
   chrome.storage.sync.get('rules', async (data) => {
     const rules = data.rules || [];
@@ -47,6 +48,7 @@ document.getElementById('runSelectedRules').addEventListener('click', async () =
       .map((checkbox) => rules[checkbox.dataset.index]);
 
     if (selectedRules.length > 0) {
+      createPopup("Trying to sort rules.");
       console.log('Selected Rules:', selectedRules);
 
       // Extract data from the first selected rule
@@ -66,13 +68,13 @@ document.getElementById('runSelectedRules').addEventListener('click', async () =
 
         const result = await response.json();
         console.log('Backend response:', result.output);
-        alert('Emails successfully sorted!');
+        createPopup("Emails successfully sorted!");
       } catch (error) {
         console.error('Error running script:', error);
-        alert('Unable to sort emails. Please try again.');
+        createPopup("Unable to sort emails. Please try again.");
       }
     } else {
-      alert('No rules selected. Please select at least one rule to run.');
+      createPopup("No rules selected. Please select at least one rule to run.");
     }
   });
 });
@@ -92,11 +94,12 @@ document.getElementById('deleteSelectedRules').addEventListener('click', () => {
 
       // Update the storage and refresh the page
       chrome.storage.sync.set({ rules: updatedRules }, () => {
-        alert('Selected rules have been deleted!');
+        sessionStorage.setItem("popupMessage", "Selected rules have been deleted!");
+
         window.location.reload();
       });
     } else {
-      alert('No rules selected. Please select at least one rule to delete.');
+      createPopup("No rules selected. Please select at least one rule to delete.");
     }
   });
 });

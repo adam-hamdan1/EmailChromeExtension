@@ -1,3 +1,5 @@
+import { createPopup } from '../src/popup.js';
+
 // Add event listener for the "Save Rule" button
 document.getElementById('saveRule').addEventListener('click', () => {
   // Get the input values for sender and label
@@ -16,7 +18,7 @@ document.getElementById('saveRule').addEventListener('click', () => {
       // Save the updated rules back to Chrome's storage
       chrome.storage.sync.set({ rules: existingRules }, () => {
         // Provide user feedback
-        alert('Rule saved successfully!');
+        sessionStorage.setItem("popupMessage", "Rule saved successfully");
 
         // Redirect to the "Run Rules" page
         window.location.href = 'run_rules.html';
@@ -24,7 +26,7 @@ document.getElementById('saveRule').addEventListener('click', () => {
     });
   } else {
     // Show an error message if either field is empty
-    alert('Error: Both "Sender" and "Label" fields must be filled out.');
+    createPopup('Error: Both "Sender" and "Label" fields must be filled out.');
   }
 });
 
