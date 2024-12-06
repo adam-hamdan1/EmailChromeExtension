@@ -5,7 +5,12 @@ Project for CSDS 393.
 
 ## Features
 
-- **Customizable Sorting:** Sort emails by sender, and soon to come: subject, date, ect.
+- **Customizable Sorting:** Sort emails by sender.
 - **Intuitive Interface:** Seamless integration with Gmail's UI for a native look and feel.
 - **Multi-Criteria Sorting:** Combine multiple sorting options to tailor your email view.
 - **Secure and Private:** No data is stored externally; all operations are handled locally.
+
+## Roadmap
+
+- **Sorting Criteria:** Soon to come sorting subject, key words, date, ect.
+- **Automation:** When a rule is made inbox get sorted as soon as an email that meets that criteria 
