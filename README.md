@@ -13,4 +13,4 @@ Project for CSDS 393.
 ## Roadmap
 
 - **Sorting Criteria:** Soon to come sorting subject, key words, date, ect.
-- **Automation:** When a rule is made inbox get sorted as soon as an email that meets that criteria 
+- **Automation:** When an email that meets that criteria of a created rule it automatlically gets sorted.
